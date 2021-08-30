@@ -407,6 +407,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4273654788809805069, guid: c4d06a00c909bcf4fbe89b9323640357, type: 3}
+      propertyPath: playerID
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5801236626021950183, guid: c4d06a00c909bcf4fbe89b9323640357, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1748,6 +1752,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4273654788809805069, guid: c4d06a00c909bcf4fbe89b9323640357, type: 3}
+      propertyPath: playerID
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5801236626021950183, guid: c4d06a00c909bcf4fbe89b9323640357, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -2181,3 +2189,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11edb6b81610bc54b8a429cb1ba8fad0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ballRb: {fileID: 2092069528}
+  ballSpeedX: 6
+  ballSpeedY: 1.2
