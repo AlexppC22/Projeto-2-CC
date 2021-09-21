@@ -304,7 +304,7 @@ GameObject:
   - component: {fileID: 134730709}
   m_Layer: 0
   m_Name: Gol Esquerda
-  m_TagString: Untagged
+  m_TagString: Gol
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1002,8 +1002,8 @@ GameObject:
   - component: {fileID: 652630328}
   - component: {fileID: 652630327}
   m_Layer: 0
-  m_Name: Gol Esquerda (1)
-  m_TagString: Untagged
+  m_Name: Parede de cima
+  m_TagString: Parede
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1430,7 +1430,7 @@ GameObject:
   - component: {fileID: 1272283771}
   m_Layer: 0
   m_Name: Gol Direita
-  m_TagString: Untagged
+  m_TagString: Gol
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1847,6 +1847,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe03a05362bc9c6478e574ef0dc125e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerOneScore: 0
+  playerTwoScore: 0
+  playerOneText: {fileID: 534180796}
+  playerTwoText: {fileID: 132792957}
 --- !u!4 &1518327970
 Transform:
   m_ObjectHideFlags: 0
@@ -1948,8 +1952,8 @@ GameObject:
   - component: {fileID: 1871889118}
   - component: {fileID: 1871889117}
   m_Layer: 0
-  m_Name: Gol Esquerda (2)
-  m_TagString: Untagged
+  m_Name: Parede de baixo
+  m_TagString: Parede
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
