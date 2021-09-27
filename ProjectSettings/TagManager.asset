@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Parede
   - Gol
+  - GolEsquerda
   layers:
   - Default
   - TransparentFX

@@ -9,8 +9,14 @@ public class GameManager : MonoBehaviour
     public int playerOneScore;
     public int playerTwoScore;
 
+    public BallController ball;
+
     public TextMeshProUGUI playerOneText;
     public TextMeshProUGUI playerTwoText;
+
+    public AudioSource sfxSource;
+
+    public AudioClip pointSFX;
 
     private void Awake()
     {
@@ -22,7 +28,8 @@ public class GameManager : MonoBehaviour
 
     public void AddScore(int playerID)
     {
-        Debug.Log("Alguem fez gol");
+        sfxSource.clip = pointSFX;
+        sfxSource.Play();
         switch (playerID)
         {
             case 1:
@@ -34,6 +41,22 @@ public class GameManager : MonoBehaviour
                 playerTwoText.text = playerTwoScore.ToString();
                 break;
         }
+    }
+
+    public void ResetBall()
+    {
+        StartCoroutine(ResetBallRoutine());
+    }
+
+    private IEnumerator ResetBallRoutine()
+    {
+        ball.gameObject.SetActive(false);
+        ball.canMove = false;
+        ball.transform.position = Vector2.zero;
+        yield return new WaitForSeconds(1);
+        ball.gameObject.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        ball.canMove = true;
     }
 
     public void ResetGame()

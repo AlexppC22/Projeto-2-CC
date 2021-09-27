@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     {   
         switch (playerID)
         {
-            case 1: // if (playerID == 0)
+            case 1: // if (playerID == 1)
                 if (Input.GetKeyDown(KeyCode.S))
                 {
                     rb2D.velocity = new Vector2(0,-playerSpeed);
@@ -22,12 +22,11 @@ public class PlayerController : MonoBehaviour
                     rb2D.velocity = new Vector2(0, playerSpeed);
                 }
                 break;
-            case 2: //else if (player == 1)
+            case 2: //else if (player == 2)
                 if (Input.GetKeyDown(KeyCode.UpArrow))
                 {
                     rb2D.velocity = new Vector2(0, playerSpeed);
                 }
-
                 if (Input.GetKeyDown(KeyCode.DownArrow))
                 {
                     rb2D.velocity = new Vector2(0, -playerSpeed);
