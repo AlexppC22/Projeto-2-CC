@@ -14,10 +14,6 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI playerOneText;
     public TextMeshProUGUI playerTwoText;
 
-    public AudioSource sfxSource;
-
-    public AudioClip pointSFX;
-
     private void Awake()
     {
         if (GameManager.gM == null)
@@ -28,8 +24,6 @@ public class GameManager : MonoBehaviour
 
     public void AddScore(int playerID)
     {
-        sfxSource.clip = pointSFX;
-        sfxSource.Play();
         switch (playerID)
         {
             case 1:

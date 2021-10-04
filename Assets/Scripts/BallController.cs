@@ -7,8 +7,9 @@ public class BallController : MonoBehaviour
     public Rigidbody2D ballRb;
     public float ballSpeedX = 6;
     public float ballSpeedY = 1.2f;
-
     public bool canMove;
+
+    public AudioPlayer audioPlayer;
 
     void Update()
     {
@@ -29,11 +30,12 @@ public class BallController : MonoBehaviour
             //Aumenta da velocidade em X e Y de modo aleatorio
             ballSpeedX += Random.Range(0.3f, 0.9f);
             ballSpeedY += Random.Range(0.1f, 0.4f);
-
+            audioPlayer.ballHitSFX.Play();
         }
         else if (collision.gameObject.CompareTag("Parede"))
         {
             ballSpeedY *= -1;
+            audioPlayer.ballHitSFX.Play();
         }
         else if (collision.gameObject.CompareTag("Gol"))
         {
@@ -41,6 +43,7 @@ public class BallController : MonoBehaviour
             GameManager.gM.AddScore(1);
             //Reinicio da bola
             GameManager.gM.ResetBall();
+            audioPlayer.golHitSFX.Play();
         }
         else if (collision.gameObject.CompareTag("GolEsquerda"))
         {
@@ -48,6 +51,7 @@ public class BallController : MonoBehaviour
             GameManager.gM.AddScore(2);
             //Reinicio da bola
             GameManager.gM.ResetBall();
+            audioPlayer.golHitSFX.Play();
         }
     }
 
