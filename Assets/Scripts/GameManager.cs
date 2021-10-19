@@ -14,6 +14,13 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI playerOneText;
     public TextMeshProUGUI playerTwoText;
 
+    public int maxScore;
+
+    public int playerID;
+
+    public GameObject endGameUI;
+    public TextMeshProUGUI winnerText;
+
     private void Awake()
     {
         if (GameManager.gM == null)
@@ -29,12 +36,23 @@ public class GameManager : MonoBehaviour
             case 1:
                 playerOneScore++; //= (playerOneScore = playerOneScore + 1) = (playerOneScore += 1)
                 playerOneText.text = playerOneScore.ToString();
+                if(playerOneScore >= maxScore)
+                    EndGame("Jogador 1", playerOneScore);
                 break;
             case 2:
                 playerTwoScore++;
                 playerTwoText.text = playerTwoScore.ToString();
+                if(playerTwoScore >= maxScore)
+                    EndGame("Jogador 2", playerTwoScore);
                 break;
         }
+    }
+
+    public void EndGame(string winnerName, int winnerScore)
+    {
+        winnerText.text = $"{winnerName} GANHOU O JOGO COM {winnerScore} PONTOS";
+        endGameUI.SetActive(true);
+        ball.gameObject.SetActive(false);
     }
 
     public void ResetBall()
@@ -56,5 +74,11 @@ public class GameManager : MonoBehaviour
     public void ResetGame()
     {
         Debug.Log("Resetei o jogo");
+        endGameUI.SetActive(false);
+        ResetBall();
+        playerOneScore = 0;
+        playerTwoScore = 0;
+        playerOneText.text = playerOneScore.ToString();
+        playerTwoText.text = playerTwoScore.ToString();
     }
 }

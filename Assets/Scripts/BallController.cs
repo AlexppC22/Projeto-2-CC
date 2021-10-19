@@ -11,6 +11,9 @@ public class BallController : MonoBehaviour
 
     public AudioPlayer audioPlayer;
 
+    public GameObject hitParticle;
+    public GameObject golParticle;
+
     void Update()
     {
         if (canMove)
@@ -22,6 +25,7 @@ public class BallController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            Instantiate(hitParticle, transform.position, Quaternion.identity); 
             ballSpeedX *= -1;
             //Teste aleatorio para a troca da dire��o em Y
             int chance = Random.Range(0, 4);
@@ -39,6 +43,7 @@ public class BallController : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Gol"))
         {
+            Instantiate(hitParticle, transform.position, Quaternion.identity); 
             //Sistema de pontos
             GameManager.gM.AddScore(1);
             //Reinicio da bola
@@ -47,6 +52,7 @@ public class BallController : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("GolEsquerda"))
         {
+            Instantiate(hitParticle, transform.position, Quaternion.identity); 
             //Sistema de pontos
             GameManager.gM.AddScore(2);
             //Reinicio da bola
