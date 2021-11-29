@@ -315,6 +315,7 @@ namespace Photon.Pun
         /// </remarks>
         public virtual void OnConnectedToMaster()
         {
+            Debug.Log("OnConnectedToMaster - Original");
         }
 
         /// <summary>
