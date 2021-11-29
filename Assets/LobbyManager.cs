@@ -14,15 +14,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
     private void Start() 
     {
-        if (PhotonNetwork.IsConnected)
-        {
-            PhotonNetwork.JoinRandomRoom();
-        }
-        else
-        {
-            PhotonNetwork.ConnectUsingSettings();
-            PhotonNetwork.GameVersion = gameVersion;
-        }
+        
     }
 
     public override void OnConnectedToMaster()
@@ -43,4 +35,24 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         base.OnDisconnected(cause);
         Debug.Log("<color=red>Desconectou do servidor:</color> " + cause);
     }
+
+    public void Connect()
+    {
+        if (PhotonNetwork.IsConnected)
+        {
+            PhotonNetwork.JoinRandomRoom();
+        }
+        else
+        {
+            PhotonNetwork.ConnectUsingSettings();
+            PhotonNetwork.GameVersion = gameVersion;
+        }
+    }
+
+
+
+
 }
+
+
+
