@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 
+
 public class LobbyManager : MonoBehaviourPunCallbacks
 {
     public string gameVersion;
+    public TextMeshProUGUI feedbackText;
     private void Awake() 
     {
         PhotonNetwork.AutomaticallySyncScene = true;    
@@ -14,7 +17,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
     private void Start() 
     {
-        
+        feedbackText.text = "DESCONECTADO";
     }
 
     public override void OnConnectedToMaster()
@@ -23,6 +26,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         Debug.Log("<color=red>Conectou no servidor</color>");
         PhotonNetwork.CreateRoom("sala");
         Debug.Log("<color=red>Juntou-se a sala</color>");
+        feedbackText.text = "CONECTADO";
     }
 
     public override void OnJoinedRoom()
@@ -46,6 +50,8 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         {
             PhotonNetwork.ConnectUsingSettings();
             PhotonNetwork.GameVersion = gameVersion;
+            feedbackText.text = "CONECTANDO...";
+
         }
     }
 
