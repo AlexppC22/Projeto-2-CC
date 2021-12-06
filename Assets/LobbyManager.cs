@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Photon.Pun;
 using Photon.Realtime;
 
@@ -32,7 +33,10 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         Debug.Log("<color=cyan>Juntou-se a sala</color>");
+        PhotonNetwork.LoadLevel(2);    
+    
     }
+
 
     public override void OnDisconnected(DisconnectCause cause)
     {
