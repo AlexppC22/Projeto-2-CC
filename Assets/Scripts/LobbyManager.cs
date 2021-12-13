@@ -24,10 +24,15 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     public override void OnConnectedToMaster()
     {
         base.OnConnectedToMaster();
+        PhotonNetwork.JoinRandomRoom();
         Debug.Log("<color=red>Conectou no servidor</color>");
-        PhotonNetwork.CreateRoom("sala");
-        Debug.Log("<color=red>Juntou-se a sala</color>");
         feedbackText.text = "CONECTADO";
+    }
+    public override void OnJoinRandomFailed(short returnCode, string message)
+    {
+        base.OnJoinRandomFailed(returnCode, message);
+        PhotonNetwork.CreateRoom("sala");
+        Debug.Log("<color=blue>sem sala, criando nova sala</color>");
     }
 
     public override void OnJoinedRoom()

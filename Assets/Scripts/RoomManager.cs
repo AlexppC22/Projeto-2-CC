@@ -12,20 +12,23 @@ public class RoomManager : MonoBehaviourPunCallbacks
     public TextMeshProUGUI opponentName;
     private void Start()
     {
-        SetPlayerNames(PhotonNetwork.LocalPlayer);
+      
     }
     public void OnPlayerConnected(Player player)
     {
         Debug.Log("jogador conectou " + player.NickName);
-        SetPlayerNames(player);
+        
     }
-    public void SetPlayerNames(Player player) 
+
+    public override void OnPlayerEnteredRoom(Player player)
     {
-        if (player.IsMasterClient)
-            playerName.text = player.NickName;
-        else
-            opponentName.text = player.NickName;
+        if (PhotonNetwork.CurrentRoom.PlayerCount == 2 && PhotonNetwork.IsMasterClient)
+        {
+            PhotonNetwork.LoadLevel(3);
+        }
+
     }
+   
     public override void OnDisconnected(DisconnectCause cause)
     {
         base.OnDisconnected(cause);
